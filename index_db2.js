@@ -4,17 +4,17 @@ var app = express();
 app.use(express.json())
 
 const { Sequelize, DataTypes } = require('sequelize');
-// const sequelize = new Sequelize({
-//   dialect: 'sqlite',
-//   storage: 'database.sqlite'
-// });
-const sequelize = new Sequelize('mydb', 'root', '1234', {
-  dialect: 'mariadb',
-  dialectOptions: {
-    // Your mariadb options here
-    // connectTimeout: 1000
-  }
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: 'database.sqlite'
 });
+// const sequelize = new Sequelize('mydb', 'root', '1234', {
+//   dialect: 'mariadb',
+//   dialectOptions: {
+//     // Your mariadb options here
+//     // connectTimeout: 1000
+//   }
+// });
 
 const Users = sequelize.define('Users', {
   userid: {
