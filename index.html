@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Nodejs에 요청보내기</title>
+</head>
+<body>
+  <input id="codeno" type="text">
+  <button onclick="sendCommand()">Nodejs서버에 API 요청</button>
+  <p id="sent-codeno">전달된 명령어: </p>
+  <script>
+    function sendCommand(){
+      const codeno = document.getElementById('codeno').value;
+      fetch(`http://localhost:3000/command/${codeno}`)
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          document.getElementById('sent-codeno').innerHTML = '전달된 명령어:' + json.codeno;
+        });
+    }
+  </script>
+</body>
+</html>
